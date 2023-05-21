@@ -1,0 +1,14 @@
+from cryptography.fernet import Fernet
+import base64
+
+# Encryption
+key = Fernet.generate_key()
+message = b'some_secret_message'
+encrypted_message = Fernet(key).encrypt(message)
+
+# Decryption
+decrypted_message = Fernet(key).decrypt(encrypted_message)
+
+print(f'Original message: {message}')
+print(f'Encrypted message: {encrypted_message}')
+print(f'Decrypted message: {decrypted_message}')
