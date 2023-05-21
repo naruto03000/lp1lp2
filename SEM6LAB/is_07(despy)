@@ -1,0 +1,15 @@
+from Crypto.Cipher import DES
+from Crypto.Util.Padding import pad, unpad
+
+key = b'Thisiqpi'
+data = b'This is'
+
+# Encryption
+cipher = DES.new(key, DES.MODE_CBC)
+encrypted_data = cipher.encrypt(pad(data, 8))
+print('Encrypted data:', encrypted_data)
+
+# Decryption
+cipher = DES.new(key, DES.MODE_CBC, cipher.iv)
+decrypted_data = unpad(cipher.decrypt(encrypted_data), 8)
+print('Decrypted data:', decrypted_data)
