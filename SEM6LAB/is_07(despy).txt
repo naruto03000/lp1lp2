@@ -3,7 +3,7 @@ Note : pip install pyDES
 from Crypto.Cipher import DES
 from Crypto.Util.Padding import pad, unpad
 key = b'98487586'
-data = b'onkar nangare'
+data = b'sinhgad academy'
 padded_data = pad(data, DES.block_size)
 
 cipher = DES.new(key, DES.MODE_ECB)
