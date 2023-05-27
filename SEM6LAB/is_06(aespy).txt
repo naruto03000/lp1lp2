@@ -1,14 +1,21 @@
-from cryptography.fernet import Fernet
-import base64
+Note : pip install pycryptodome
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+key = b'1234567887654321'
+data = b'onkar nangare'
+padded_data = pad(data, AES.block_size)
 
-# Encryption
-key = Fernet.generate_key()
-message = b'some_secret_message'
-encrypted_message = Fernet(key).encrypt(message)
+cipher = AES.new(key, AES.MODE_ECB)
 
-# Decryption
-decrypted_message = Fernet(key).decrypt(encrypted_message)
+encrypted_data = cipher.encrypt(padded_data)
 
-print(f'Original message: {message}')
-print(f'Encrypted message: {encrypted_message}')
-print(f'Decrypted message: {decrypted_message}')
+decrypted_data = cipher.decrypt(encrypted_data)
+
+unpadded_data = unpad(decrypted_data, AES.block_size)
+
+print("Original Data:", data)
+print("Padded Data:", padded_data)
+print("Encrypted Data:", encrypted_data)
+print("Decrypted Data:", decrypted_data)
+print("Unpadded Data:",unpadded_data)
