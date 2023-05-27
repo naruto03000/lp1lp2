@@ -3,7 +3,7 @@ Note : pip install pycryptodome
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 key = b'1234567887654321'
-data = b'onkar nangare'
+data = b'sinhgad academy'
 padded_data = pad(data, AES.block_size)
 
 cipher = AES.new(key, AES.MODE_ECB)
