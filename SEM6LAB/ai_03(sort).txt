@@ -62,7 +62,7 @@ graph={
 }
 print(krushkal(graph))
 
------------------------#Krushkals Algorithm:----------------------------
+-----------------------#Job scheduling Algorithm:----------------------------
 
 def printJobScheduling(arr, t):
  
